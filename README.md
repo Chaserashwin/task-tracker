@@ -450,6 +450,11 @@ http://localhost:5000/api
 4. Push to the branch
 5. Create a Pull Request
 
+## 📬 Author
+
+**Ashwin Jaiswal**
+Full-Stack Developer (MERN)
+
 ## License
 
 MIT License - feel free to use this project for personal or commercial purposes.
