@@ -358,24 +358,47 @@ http://localhost:5000/api
 
 ### Backend Deployment (Heroku example)
 
-1. **Create a Heroku account** and install Heroku CLI
+1. **Make sure your backend server.js is set up for Vercel (no app.listen(), exports the app).**
 
-2. **Create a new app:**
+2. **Ensure you have vercel.json configured:**
 
-   ```bash
-   heroku create task-tracker-backend
+   ```
+   {
+   "version": 2,
+   "builds": [
+    {
+      "src": "src/server.js",
+      "use": "@vercel/node"
+    }
+   ],
+   "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/server.js"
+    }
+   ]
+   }
    ```
 
-3. **Set environment variables:**
+3. **Login and deploy backend with Vercel CLI:**
 
-   ```bash
-   heroku config:set MONGODB_URI=your_mongodb_uri
-   heroku config:set NODE_ENV=production
+   ```
+   cd backend
+   npm i -g vercel
+   vercel login
+   vercel
    ```
 
-4. **Push to Heroku:**
-   ```bash
-   git push heroku main
+4. **In the Vercel dashboard, add environment variables:**
+
+   ```
+   MONGODB_URI = your MongoDB Atlas connection string
+   ```
+
+5. **After deployment, your backend URL will look like:**
+
+   ```
+   https://your-backend-name.vercel.app
    ```
 
 ### Frontend Deployment (Vercel example)
