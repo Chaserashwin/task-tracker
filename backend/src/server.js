@@ -38,6 +38,10 @@ app.get("/api/health", (req, res) => {
   res.status(200).json({ message: "Server is running" });
 });
 
+app.get("/", (req, res) => {
+  res.json({ message: "Task Tracker API is live 🚀" });
+});
+
 // 404 handler
 app.use((req, res) => {
   res.status(404).json({ message: "Route not found" });
